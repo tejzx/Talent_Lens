@@ -59,18 +59,19 @@ JD analysis, hashing embeddings, NumPy inner-product search) and labels the degr
 ## Setup
 
 ```bash
-cd resume-agent
+cd Talent_Lens
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 export GROQ_API_KEY="your-key"        # optional but recommended
 export GROQ_MODEL="llama-3.3-70b-versatile"  # optional override
 cd frontend && npm install && npm run build && cd ..
-uvicorn server:app --host 127.0.0.1 --port 8501
+uvicorn server:app --host 127.0.0.1 --port 8000
 ```
 
-Open `http://127.0.0.1:8501` to use the React dashboard. For frontend development,
-run `uvicorn server:app --reload` in one terminal and `npm run dev` from `frontend/`
-in another; Vite proxies API requests to the Python backend.
+Open `http://127.0.0.1:8000` to use the React dashboard. For frontend development,
+run `uvicorn server:app --reload --port 8000` in one terminal and `npm run dev` from
+`frontend/` in another (`http://localhost:5173`); Vite proxies `/api` requests to the
+Python backend on port 8000.
 
 ## Deploy
 
@@ -98,39 +99,42 @@ python smoke_test.py
 
 ## Tech stack
 
-Streamlit · Python · Groq (`llama-3.3-70b-versatile`) · sentence-transformers `all-MiniLM-L6-v2` · FAISS ·
+React · Vite · FastAPI · Python · Groq (`llama-3.3-70b-versatile`) · sentence-transformers `all-MiniLM-L6-v2` · FAISS ·
 PyMuPDF · python-docx · pytesseract + pdf2image · SQLite · pandas · NumPy · scikit-learn ·
-Plotly · ReportLab.
+Recharts · ReportLab.
 
 ---
 
 ## Dashboard
 
-- **Cards** — total candidates, average score, top candidate, hiring rate.
-- **Candidates tab** — filter by score, status, and skill search; interactive table; per-candidate
-  detail with radar chart, recruiter brief, parsed text, and JSON/MD/PDF downloads.
-- **Analytics tab** — score distribution, candidate ranking, top skills, missing skills, dimension coverage.
-- **Compare tab** — multi-candidate radar overlay, side-by-side matrix, shortlisted vs rejected.
-- **Job profile tab** — weighted requirement chart and raw JD JSON.
-- **Exports tab** — CSV, JSON, Markdown report, PDF report, recruiter summary.
+- **Cards** — total candidates, average score, top candidate, next-round count.
+- **Candidates tab** — ranked candidate list with per-candidate detail: score breakdown,
+  matched/missing skills, recruiter brief, interview email generator.
+- **Analytics tab** — score-by-candidate bar chart and Hire/Maybe/Reject decision mix.
+- **Role profile tab** — weighted requirement chart and job profile summary.
+- **Exports tab** — CSV, JSON, Markdown report, recruiter summary, and PDF report.
+- **Pipeline history** — every screening run is saved to SQLite and reloadable, with the
+  most recent run surfaced first from "Open candidate pipeline."
 
-Bonus features: interview questions, recruiter notes, candidate comparison, PDF report,
-radar chart, shortlist email generator, skill search, score filter.
+Bonus features: interview questions, recruiter notes, interview-invite email generator,
+PDF report, run history, skill radar breakdown per candidate.
 
 ---
 
 ## Folder structure
 
 ```
-resume-agent/
-  app.py                    Streamlit UI
+Talent_Lens/
+  server.py                 FastAPI backend (serves the API + built React app)
   smoke_test.py             end-to-end pipeline check
+  frontend/                 React + Vite dashboard
+    src/App.jsx  src/styles.css  src/main.jsx
   agents/
     resume_agent.py         Agent 1
-    jd_agent.py             Agent 2
-    scoring_agent.py        Agent 3
-    recruiter_agent.py      Agent 4
-    pipeline.py             orchestration
+    jd_agent.py              Agent 2
+    scoring_agent.py         Agent 3
+    recruiter_agent.py       Agent 4
+    pipeline.py              orchestration
   parser/
     pdf_parser.py  docx_parser.py  ocr.py
   embeddings/
@@ -150,4 +154,5 @@ resume-agent/
 - **Prompts** (`utils/prompts.py`) enforce internal chain-of-thought, strict JSON schemas,
   and an explicit "return Unknown, never guess" rule. Protected attributes are never inferred.
 - **Auditability** — the LLM sees the computed scores and explains them; it cannot change them.
-- **Persistence** — every run is written to SQLite and reloadable from the sidebar.
+- **Persistence** — every run is written to SQLite and reloadable from the dashboard's
+  pipeline history.

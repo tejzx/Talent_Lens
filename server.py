@@ -9,13 +9,13 @@ from pathlib import Path
 
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, Response
 from fastapi.staticfiles import StaticFiles
 
 from agents.pipeline import run_pipeline
 from agents.recruiter_agent import shortlist_email
 from parser import extract_text
-from utils import database
+from utils import database, report
 from utils.ranking import summary_stats
 
 ROOT = Path(__file__).resolve().parent
@@ -24,7 +24,12 @@ FRONTEND_DIST = ROOT / "frontend" / "dist"
 app = FastAPI(title="Talent Lens API", version="1.0.0")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    allow_origins=[
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+        "http://localhost:4173",
+        "http://127.0.0.1:4173",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -80,6 +85,55 @@ def interview_email(payload: dict) -> dict:
     if not isinstance(resume, dict) or not isinstance(jd, dict):
         raise HTTPException(status_code=422, detail="Candidate and role details are required.")
     return {"email": shortlist_email(resume, jd)}
+
+
+def _screening_from_payload(payload: dict) -> tuple[dict, list[dict]]:
+    jd, results = payload.get("jd"), payload.get("results")
+    if not isinstance(jd, dict) or not isinstance(results, list):
+        raise HTTPException(status_code=422, detail="A screening result set is required.")
+    return jd, results
+
+
+@app.post("/api/export/csv")
+def export_csv(payload: dict):
+    jd, results = _screening_from_payload(payload)
+    return Response(
+        content=report.to_csv(results),
+        media_type="text/csv",
+        headers={"Content-Disposition": 'attachment; filename="talent-lens-results.csv"'},
+    )
+
+
+@app.post("/api/export/markdown")
+def export_markdown(payload: dict):
+    jd, results = _screening_from_payload(payload)
+    return Response(
+        content=report.full_markdown_report(jd, results),
+        media_type="text/markdown",
+        headers={"Content-Disposition": 'attachment; filename="talent-lens-report.md"'},
+    )
+
+
+@app.post("/api/export/recruiter-summary")
+def export_recruiter_summary(payload: dict):
+    jd, results = _screening_from_payload(payload)
+    return Response(
+        content=report.recruiter_summary(jd, results),
+        media_type="text/markdown",
+        headers={"Content-Disposition": 'attachment; filename="recruiter-summary.md"'},
+    )
+
+
+@app.post("/api/export/pdf")
+def export_pdf(payload: dict):
+    jd, results = _screening_from_payload(payload)
+    markdown_text = report.full_markdown_report(jd, results)
+    pdf_bytes = report.to_pdf(markdown_text, title=f"Screening Report - {jd.get('job_title', 'Role')}")
+    return Response(
+        content=pdf_bytes,
+        media_type="application/pdf",
+        headers={"Content-Disposition": 'attachment; filename="talent-lens-report.pdf"'},
+    )
 
 
 if FRONTEND_DIST.exists():
