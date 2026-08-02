@@ -1,0 +1,11 @@
+.git
+.venv
+.venv-1
+frontend/node_modules
+frontend/dist
+__pycache__
+**/__pycache__
+*.pyc
+.env
+data/screening.db
+output

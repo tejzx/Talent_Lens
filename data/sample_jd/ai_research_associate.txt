@@ -1,0 +1,41 @@
+AI Research Associate
+
+Company: Northwind AI Labs
+Location: Hyderabad, India (Hybrid)
+Industry: Artificial Intelligence / Applied Research
+
+About the role
+We are hiring an AI Research Associate to prototype and evaluate applied LLM systems:
+retrieval-augmented generation, multi-agent orchestration, and evaluation harnesses.
+
+Responsibilities
+- Build and evaluate RAG and multi-agent pipelines on internal document corpora.
+- Fine-tune and benchmark transformer models for classification and extraction tasks.
+- Write production-quality Python and ship prototypes behind FastAPI services.
+- Design offline evaluation datasets and report findings to research and product stakeholders.
+- Collaborate with MLOps to deploy models on Azure.
+
+Required skills
+- Python (expert level, 3+ years)
+- Machine learning and deep learning fundamentals
+- NLP and LLM application development
+- PyTorch or TensorFlow
+- SQL
+- Git and CI/CD
+
+Preferred skills
+- LangChain, RAG architectures, vector databases (FAISS)
+- Azure or AWS deployment experience
+- Docker, MLOps tooling
+- Hugging Face ecosystem
+
+Soft skills
+- Strong written and verbal communication
+- Ownership and problem solving
+- Stakeholder management for research findings
+
+Education
+Bachelor's degree in Computer Science, Data Science or related field; Master's preferred.
+
+Experience
+Minimum 3 years of applied ML or research engineering experience.

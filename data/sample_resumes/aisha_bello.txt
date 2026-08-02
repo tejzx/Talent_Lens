@@ -1,0 +1,43 @@
+Aisha Bello
+aisha.bello@example.com | +234 802 555 0117 | Lagos, Nigeria
+github.com/aishabello
+
+Summary
+Data scientist with 3 years of experience in NLP research and applied machine learning.
+
+Skills
+Python
+Machine Learning
+Deep Learning
+NLP
+PyTorch
+Hugging Face
+scikit-learn
+pandas
+numpy
+SQL
+Git
+Statistics
+Communication
+
+Experience
+Data Scientist, Kano Analytics — Feb 2022 to Present
+- Trained transformer classifiers for multilingual customer intent detection.
+- Published internal benchmarks comparing PyTorch and Hugging Face pipelines.
+
+Research Assistant, University of Lagos — Sep 2020 to Jan 2022
+- Co-authored two papers on low-resource language modeling.
+
+Projects
+Yoruba language model — pretrained a small transformer on 400M tokens. Tech: Python, PyTorch.
+Toxicity detection API — FastAPI service with a fine-tuned model. Tech: Python, Hugging Face.
+
+Education
+B.Sc. Computer Science, University of Lagos, 2020
+
+Certifications
+Hugging Face NLP Course Certificate
+
+Languages
+English
+Yoruba

@@ -1,0 +1,5 @@
+services:
+  - type: web
+    name: talent-lens
+    runtime: docker
+    healthCheckPath: /api/health
