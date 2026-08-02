@@ -142,7 +142,7 @@ resume-agent/
   output/
   requirements.txt
 ```
-Demo Link: https://talentlens-ai-screening-agent.netlify.app/
+
 ---
 
 ## Design notes
