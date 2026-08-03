@@ -1,3 +1,7 @@
+
+
+
+
 # Talent Lens
 
 **A production-shaped, multi-agent resume screening system with a full recruiting pipeline.**
@@ -13,27 +17,7 @@ for structured extraction and recruiter-facing reasoning — it never invents th
 ---
 
 ## Demo
-
-<!--
-  Add your screen recording here. GitHub doesn't allow linking directly to a local file
-  on your desktop — you have to upload it through GitHub's own editor so it gets hosted
-  on GitHub's CDN first. Steps:
-
-  1. Open this README.md file for editing on GitHub.com (the pencil icon, or
-     Add file -> Upload files if you haven't pushed this file yet).
-  2. Drag your recording file (e.g. demo.mp4) directly into the edit box, or click
-     "Attach files" at the bottom of the editor.
-  3. GitHub uploads it and auto-inserts a Markdown/HTML snippet with a working URL,
-     something like:
-       https://github.com/tejzx/Talent_Lens/assets/xxxxxxx/xxxxxxxx-xxxx-xxxx.mp4
-  4. Replace the placeholder line below with that inserted snippet, then commit.
-
-  Alternative: convert the recording to a GIF (e.g. with ScreenToGif or ezgif.com) and
-  reference it as a normal image -- GIFs autoplay inline without needing a click, which
-  reads better at the top of a README.
--->
-
-> 🎥 *Screen recording coming soon — see the comment above for upload steps.*
+Video Link: https://www.loom.com/share/bdb2d55c06844a799ef8a898d0acdde1
 
 ---
 
