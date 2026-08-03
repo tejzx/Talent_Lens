@@ -319,5 +319,5 @@ after clearing site data), since it's stored in that browser's local storage. Ru
 real screening to add your own candidates alongside the demo data.
 
 ## Contact
-I am down to collaborations and suggestions on making the platform better. 
+Open for suggestions and collaborations
 Mail: reachteju10@gmail.com
