@@ -1,0 +1,37 @@
+Marcus Feld
+marcus.feld@example.com | +1 415 555 0143 | San Francisco, CA
+linkedin.com/in/marcusfeld
+
+Summary
+Full-stack developer with 4 years of experience shipping web applications.
+
+Skills
+JavaScript
+TypeScript
+React
+Node.js
+Python
+SQL
+PostgreSQL
+Docker
+Git
+
+Experience
+Software Engineer, Brightline — Jan 2021 to Present
+- Built customer dashboards in React and Node.js serving 40k users.
+- Added a Python service for CSV ingestion and reporting.
+
+Junior Developer, Kettle Studio — Jun 2019 to Dec 2020
+- Maintained Django admin tooling and PostgreSQL schemas.
+
+Projects
+Analytics dashboard — realtime charts over Postgres. Tech: React, Node.js.
+
+Education
+B.S. Computer Science, San Jose State University, 2019
+
+Certifications
+AWS Certified Cloud Practitioner
+
+Languages
+English

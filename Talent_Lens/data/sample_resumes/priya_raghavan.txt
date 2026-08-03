@@ -1,0 +1,49 @@
+Priya Raghavan
+priya.raghavan@example.com | +91 98765 43210 | Bengaluru, India
+github.com/priyaraghavan | linkedin.com/in/priyaraghavan
+
+Summary
+Applied ML engineer with 5 years of experience building NLP and LLM systems in production.
+
+Skills
+Python
+PyTorch
+TensorFlow
+NLP
+LLM
+RAG
+LangChain
+FAISS
+SQL
+Docker
+Azure
+Git
+CI/CD
+Communication
+
+Experience
+Senior ML Engineer, Fintrail AI — Mar 2022 to Present
+- Built a RAG assistant over 2M internal documents using FAISS and LangChain.
+- Cut document triage latency 62% with a distilled transformer classifier.
+- Deployed inference services on Azure Kubernetes Service with CI/CD.
+
+ML Engineer, Datalytics — Jul 2019 to Feb 2022
+- Fine-tuned BERT models for entity extraction on contracts.
+- Owned the offline evaluation harness used by four teams.
+
+Projects
+Multi-agent research assistant — orchestrated planner/retriever/critic agents over arXiv. Tech: Python, LangChain, FAISS.
+Eval harness for LLM extraction — reproducible benchmark with 12 datasets. Tech: Python, pandas.
+
+Education
+M.Tech Computer Science, IIT Madras, 2019
+B.E. Information Science, RVCE, 2017
+
+Certifications
+Microsoft Certified: Azure AI Engineer Associate
+DeepLearning.AI NLP Specialization
+
+Languages
+English
+Tamil
+Hindi
