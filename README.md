@@ -1,7 +1,3 @@
-
-
-
-
 # Talent Lens
 
 **A production-shaped, multi-agent resume screening system with a full recruiting pipeline.**
@@ -321,3 +317,7 @@ any time to switch to LLM-powered extraction and reasoning.
 The Kanban board seeds itself with demo candidates on first load in a new browser (or
 after clearing site data), since it's stored in that browser's local storage. Run a
 real screening to add your own candidates alongside the demo data.
+
+## Contact
+I am down to collaborations and suggestions on making the platform better. 
+Mail: reachteju10@gmail.com
