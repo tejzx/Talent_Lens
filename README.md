@@ -18,7 +18,7 @@ for structured extraction and recruiter-facing reasoning — it never invents th
 
 ## Demo
 Video Link: https://www.loom.com/share/bdb2d55c06844a799ef8a898d0acdde1
-
+Note: Please do ignore the background noise. 
 ---
 
 ## Table of contents
